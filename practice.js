@@ -9,7 +9,7 @@ function personName() {
     age: 29,
     location: 'Orem, UT',
   };
-  return; // Code here
+  return person.firstName; // Code Here
 }
 
 /// ////////////// PROBLEM 2 ////////////////////
@@ -23,7 +23,7 @@ function personLocation() {
     age: 29,
     location: 'Orem, UT',
   };
-  return; // Code Here
+  return person['location']; // Code Here
 }
 
 /// ////////////// PROBLEM 3 ////////////////////
@@ -33,6 +33,7 @@ function personLocation() {
 const backpack = {};
 
 // Code Here
+backpack.frontPocket = `compass`
 
 /// ////////////// PROBLEM 4 ////////////////////
 
@@ -43,6 +44,7 @@ const person = {};
 person['firstName'] = 'sally';
 
 // Code Here
+const userFirstName = person.firstName
 
 /// ////////////// PROBLEM 5 ////////////////////
 
@@ -58,6 +60,10 @@ person['firstName'] = 'sally';
 
 function updateUser(user) {
   // Code Here
+  user.name = `Ryan`
+  user.pwHash = `superSafe`
+  user.username = `ryan2020`
+  return user
 }
 
 /// ////////////// PROBLEM 6 ////////////////////
@@ -75,6 +81,7 @@ function updateUser(user) {
 
 function updateProfile(profile, property, value) {
   // Code here
+  profile[property] = value
   return profile;
 }
 
@@ -86,8 +93,10 @@ function updateProfile(profile, property, value) {
 
 function maxedOut(obj) {
   // REPLACE THIS WITH YOUR CODE
-
-  return obj;
+  for(const key in obj) {
+    obj[key] = `max`
+  }
+return obj;
 }
 
 /// ////////////// PROBLEM 8 ////////////////////
@@ -104,6 +113,11 @@ const state = {
 
 function stateLooper(obj) {
   // REPLACE THIS WITH YOUR CODE
+  for(const key in obj) {
+    if(obj[key] > 3000000) {
+        obj[key] = 0
+    }
+  }
   return obj;
 }
 
@@ -115,7 +129,11 @@ function stateLooper(obj) {
 
 function cleanUser(obj) {
   // REPLACE THIS WITH YOUR CODE
-
+  for(const key in obj) {
+    if(!obj[key]) {
+        delete obj[key]
+    }
+  }
   return obj;
 }
 
@@ -126,6 +144,7 @@ function cleanUser(obj) {
 
 function getValues(obj) {
   // REPLACE THIS WITH YOUR CODE
+  return Object.values(obj)
 }
 
 /// ////////////// PROBLEM 11 ////////////////////
@@ -135,6 +154,7 @@ function getValues(obj) {
 
 function copyArray(arr) {
   // REPLACE THIS WITH YOUR CODE
+  return [...arr, "copy"]
 }
 
 /// ////////////// PROBLEM 12 ////////////////////
@@ -144,6 +164,7 @@ function copyArray(arr) {
 
 function copyObject(obj) {
   // REPLACE THIS WITH YOUR CODE
+  return {...obj, copy: true}
 }
 
 /// ////////////// PROBLEM 13 ////////////////////
@@ -160,6 +181,7 @@ const animalCount = {
 // animalCount object.
 
 // REPLACE THIS WITH YOUR CODE
+const {cats, dogs, mice} = animalCount
 
 /// ////////////// PROBLEM 14 ////////////////////
 
@@ -168,6 +190,10 @@ const animalCount = {
 // Then return the sum of the two numbers.
 
 // REPLACE THIS WITH YOUR CODE
+function addition(arr) {
+  const [num1, num2] = arr
+  return num1 + num2
+}
 
 /// ////////////// PROBLEM 15 ////////////////////
 
@@ -177,6 +203,10 @@ const animalCount = {
 // Using object destructuring, return the total sum of the counts of these animals
 
 // REPLACE THIS WITH YOUR CODE
+function zooAnimals(obj) {
+  const {lion, tiger, bear} = obj
+  return lion + tiger + bear
+}
 
 /// ////////////// PROBLEM 16 ////////////////////
 
@@ -206,3 +236,8 @@ const animalCount = {
 // destructured object variables.
 
 // REPLACE THIS WITH YOUR CODE
+const destructObj = {name: Eric, title: Sir}
+
+function greeting(destructObj) {
+  return `Hello, ${destructObj.title} ${destructObj.name}!`
+}
